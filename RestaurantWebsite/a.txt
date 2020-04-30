@@ -1,0 +1,213 @@
+$(document).ready(function() {
+  $(".dropdown, .btn-group").hover(function() {
+    var dropdownMenu = $(this).children(".dropdown-menu");
+    if (dropdownMenu.is(":visible")) {
+      dropdownMenu.parent().toggleClass("open");
+    }
+  });
+});
+
+$(document).ready(function() {
+  console.log("dom is ready");
+
+  $("#search-btn").click(function() {
+    console.log("button clicked");
+
+    var searchQuery = $("#search-query").val();
+    getData(searchQuery);
+    // document.getElementById("search-results").remove();
+
+    console.log("query: ", searchQuery);
+  });
+});
+
+function getData(searchQuery) {
+  var url = "https://forkify-api.herokuapp.com/api/search";
+
+  $.getJSON(
+    url,
+    {
+      q: searchQuery,
+      format: "json",
+      pretty: 1
+    },
+    function(response) {
+      console.log("response", response);
+      console.log(response.recipes.length);
+        var k = 0;
+      for (var i = 0; i < response.recipes.length; i++) {
+        // for (var j = 0; j < 3; j++) {
+        var ul = document.getElementById("ulId");
+        var li = document.createElement("li");
+        li.className = "item";
+        var a = document.createElement("a");
+        a.className = "content-wrapper";
+        var imgDiv = document.createElement("div");
+        imgDiv.className = "image";
+        imgDiv.id = "imgId";
+        var ImgUrl = response.recipes[i].image_url;
+        imgDiv.style.backgroundImage = `url('${ImgUrl}')`;
+
+        imgDiv.style.width = "370px";
+        imgDiv.style.height = "250px";
+        imgDiv.style.margin = "20px";
+        imgDiv.innerHTML = `image${i + 1}`;
+        //   document.getElementById.style.backgroundImage = "ImgUrl";
+        // width: 480px;height: 400px;
+        var title = document.createElement("h5");
+        title.className = "title";
+        title.innerHTML = response.recipes[i].title;
+        title.style.marginLeft = "20px";
+        //////////////////////////////////////// recipe_id
+        var publisher = document.createElement("p");
+        publisher.className = "publisher";
+        publisher.innerHTML = "By:" + response.recipes[i].publisher;
+        publisher.style.marginLeft = "20px";
+        /////////////////////////////////////
+        var recipeid = document.createElement("p");
+        recipeid.className = "recipe_id";
+        recipeid.innerHTML = "By:" + response.recipes[i].recipe_id;
+        recipeid.style.marginLeft = "20px";
+        recipeid.style.marginTop = "1px";
+        ul.appendChild(recipeid);
+        a.appendChild(imgDiv);
+        a.appendChild(title);
+        a.appendChild(publisher);
+        // a.appendChild(button1);
+        var url = response.recipes[i].source_url;
+        // console.log(url);
+        a.setAttribute("href", url);
+        li.appendChild(a);
+        ul.appendChild(li);
+
+        var button1 = document.createElement("button");
+        button1.className = "btn btn-primary";
+        button1.innerHTML = "see recipes";
+
+        // }
+      }
+    }
+  );
+}
+
+function loadData(data) {
+  //   data.forEach(function(obj) {
+  //     var liElem = document.createElement("li");
+  //     var aElem = document.createElement("a");
+  //     aElem.setAttribute("href", obj.FirstURL);
+  //     aElem.setAttribute("target", "_blank");
+  //     aElem.innerHTML = obj.Text;
+  //     liElem.appendChild(aElem);
+  //     var ul = document.getElementById("search-results");
+  //     ul.appendChild(liElem);
+  //     console.log(liElem);
+  //   });
+  console.log("hellow my name is abid");
+}
+
+
+
+
+
+zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Monthly test</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bs-example">
+      <!--Navbar with dropdown menu-->
+      <nav id="myNavbar" class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container">
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Food</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <ul class="nav navbar-nav">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Profile</a></li>
+              <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle"
+                  >Favourite <b class="caret"></b
+                ></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Menu1</a></li>
+                  <li><a href="#">Menu2</a></li>
+                  <li><a href="#">Menu3</a></li>
+                  <li><a href="#">Menu4</a></li>
+                  <li><a href="#">Menu5</a></li>
+                  <li><a href="#">Menu6</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+      <div class="row mt-5">
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control "
+            name="search-query"
+            id="search-query"
+            placeholder="search-query"
+          />
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-success" id="search-btn">Search Query</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-container">
+      <div class="main" id="mainId">
+        <div id="row">
+          <div id="col">
+            <ul class="list all-prods" id="ulId"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>

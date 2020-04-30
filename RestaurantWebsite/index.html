@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Resturant Website</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bs-example">
+      <!--Navbar with dropdown menu-->
+      <nav id="myNavbar" class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container">
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle"
+              data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1"
+            >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Food</a>
+          </div>
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div
+            class="collapse navbar-collapse"
+            id="bs-example-navbar-collapse-1"
+          >
+            <ul class="nav navbar-nav">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Profile</a></li>
+              <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle"
+                  >Favourite <b class="caret"></b
+                ></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Menu1</a></li>
+                  <li><a href="#">Menu2</a></li>
+                  <li><a href="#">Menu3</a></li>
+                  <li><a href="#">Menu4</a></li>
+                  <li><a href="#">Menu5</a></li>
+                  <li><a href="#">Menu6</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container" id="results">
+      <div class="row mt-5">
+        <div class="col-md-6">
+          <input
+            type="text"
+            class="form-control"
+            name="search-query"
+            id="search-query"
+            placeholder="search-query"
+          />
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-success" id="search-btn">Search Query</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <nav aria-label="Page navigation example">
+      <ul class="pagination" id="page">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav> -->
+    <div class="container" id="cont"></div>
+    <p id="hr"></p>
+    <div class="bgImage" id="bgImage">
+      <img id="bgImages" src="images/home_header.png" alt="background-img"
+      height=700px" width="2000px" />
+    </div>
+    <div class="marq">
+      <marquee width="80%" direction="left" height="30%">
+        Please Like and Subscribe my channel
+        youtube/Mernstackdeveloper&nbsp;&nbsp;&nbsp;&nbsp; Please Like and
+        Subscribe my channel
+        youtube/Mernstackdeveloper&nbsp;&nbsp;&nbsp;&nbsp;Please Like and
+        Subscribe my channel
+        youtube/Mernstackdeveloper&nbsp;&nbsp;&nbsp;&nbsp;Please Like and
+        Subscribe my channel
+        youtube/Mernstackdeveloper&nbsp;&nbsp;&nbsp;&nbsp;Please Like and
+        Subscribe my channel
+        youtube/Mernstackdeveloper&nbsp;&nbsp;&nbsp;&nbsp;Please Like and
+        Subscribe my channel
+        youtube/Mernstackdeveloper&nbsp;&nbsp;&nbsp;&nbsp;Please Like and
+        Subscribe my channel
+        youtube/Mernstackdeveloper&nbsp;&nbsp;&nbsp;&nbsp;Please Like and
+        Subscribe my channel
+        youtube/Mernstackdeveloper&nbsp;&nbsp;&nbsp;&nbsp;Please Like and
+        Subscribe my channel
+        youtube/Mernstackdeveloper&nbsp;&nbsp;&nbsp;&nbsp;Please Like and
+        Subscribe my channel
+        youtube/Mernstackdeveloper&nbsp;&nbsp;&nbsp;&nbsp;Please Like and
+        Subscribe my channel youtube/Mernstackdeveloper&nbsp;&nbsp;&nbsp;&nbsp;
+      </marquee>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
